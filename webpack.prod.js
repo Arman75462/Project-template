@@ -17,13 +17,10 @@ module.exports = merge(common, {
     splitChunks: {
       chunks: "all",
     },
+    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
   },
 
   plugins: [new MiniCssExtractPlugin()],
-
-  optimization: {
-    minimizer: [new TerserPlugin(), new CssMinimizerPlugin()],
-  },
 
   module: {
     rules: [
