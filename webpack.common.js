@@ -1,17 +1,38 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
-
-  devtool: "inline-source-map",
-  devServer: {
-    static: "./src",
-  },
+  entry: "./src/javascript-files/index.js",
 
   module: {
     rules: [
       {
         test: /(png|svg|jpg|jpeg|gif|xcf)$/i,
+        use: [
+          {
+            loader: "image-webpack-loader",
+            options: {
+              mozjpeg: {
+                progressive: true,
+              },
+              // Optimize png images
+              optipng: {
+                enabled: true,
+              },
+              // Optimize svg images
+              svgo: {
+                enabled: true,
+              },
+              // Optimize gif images
+              gifsicle: {
+                interlaced: false,
+              },
+              // Compress JPG & PNG images into WEBP
+              webp: {
+                quality: 75,
+              },
+            },
+          },
+        ],
         type: "asset/resource",
       },
       {

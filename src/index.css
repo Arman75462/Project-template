@@ -87,7 +87,7 @@ a {
   text-decoration: none;
 }
 
-/* Indicate interactive elements with pointer cursor *
+/* Indicate interactive elements with pointer cursor  */
 input[type="checkbox"],
 input[type="date"]::-webkit-calendar-picker-indicator,
 select,
